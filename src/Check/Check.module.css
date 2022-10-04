@@ -1,0 +1,167 @@
+.main {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+    position: relative;
+
+}
+
+.img {
+    background-size: cover;
+    max-width: 100%;
+    height: 150px;
+}
+
+.titleDiv {
+    background-color: #2384ED;
+    color: #fff;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    position: sticky;
+}
+
+.title {
+    width: 70%;
+    margin: 0 auto;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+
+}
+
+.date {
+    text-align: right;
+    margin: 5px 0;
+
+}
+
+.date p {
+    margin: 0;
+}
+
+.select {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px #818181;
+    margin: 0 0 15px;
+}
+
+.selectHeader {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-self: center;
+    cursor: pointer;
+
+}
+
+.iconSelect {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px 0 10px;
+    transition: all .3s ease;
+}
+
+.selectTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 15px 15px 15px 0;
+    font-size: 16px;
+
+
+}
+
+.selectTitle p {
+    margin: 0;
+    width: 50%;
+}
+
+.selectTitle p span {
+    font-weight: 600;
+    font-style: italic;
+
+}
+
+.selectContent {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: all .3s ease;
+}
+
+.selectContentEl {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    font-size: 16px;
+    border-top: 1px solid #818181;
+}
+
+.selectContentEl p {
+    margin: 0;
+}
+
+.text {
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: justify;
+
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.tableTitle {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 20px;
+    text-align: center;
+}
+
+.tableEl {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    margin: 0;
+    border-top: 1px solid #818181;
+}
+
+.tableEl:nth-child(1) {
+    border: 0 !important;
+}
+
+.tableEl p {
+    width: 40%;
+    margin: 0;
+    text-align: center;
+}
+
+.tableEl .border {
+    width: 0;
+    height: 100%;
+    border-right: 1px solid #818181;
+}
+
+.certificate{
+
+}
