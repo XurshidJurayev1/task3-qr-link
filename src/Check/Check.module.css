@@ -193,7 +193,7 @@
 .modalImg {
     width: 300px;
     /*height: calc(100vh - 200px);*/
-    height: 400px);
+    height: 400px;
     background-size: contain;
     background-repeat: no-repeat;
 }
