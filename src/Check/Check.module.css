@@ -131,7 +131,6 @@
 }
 
 
-
 .tableTitle {
     font-size: 18px;
     font-weight: 600;
@@ -170,8 +169,8 @@
 
 .modal {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
     width: 100%;
     height: 100vh;
     background: rgba(51, 51, 51, 0.58);
@@ -193,7 +192,7 @@
 
 .modalImg {
     width: 300px;
-    height: 400px;
+    height: calc(100vh - 200px);
     background-size: contain;
     background-repeat: no-repeat;
 }

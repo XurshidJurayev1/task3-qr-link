@@ -3,6 +3,7 @@ import s from './Check.module.css';
 import bg from '../assets/photo_2022-10-03_22-25-48.jpg';
 import img from '../assets/img.png';
 import { AiOutlineDown, AiFillCloseSquare } from 'react-icons/ai';
+import ModalEl from './Modal';
 
 const Index = () => {
   const [select1, setSelect1] = useState(false);
@@ -198,18 +199,12 @@ const Index = () => {
 
         <p className={s.certificate} onClick={() => setModal(true)}>
           сертификаты
+
         </p>
 
 
       </div>
-      <div className={s.modal} style={modal ? { display: 'flex' } : { display: 'none' }}>
-        <div className={s.modalContent} onBlur={() => setModal(false)}>
-          <div className={s.close} onClick={() => setModal(false)}>
-            <AiFillCloseSquare />
-          </div>
-          <div className={s.modalImg} style={{ backgroundImage: `url(${img})` }} />
-        </div>
-      </div>
+      <ModalEl modal={modal} setModal={setModal} />
     </div>
   );
 };
