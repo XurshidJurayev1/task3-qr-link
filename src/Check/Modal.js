@@ -33,6 +33,9 @@ const ModalEl = (props) => {
         style={customStyles}
         contentLabel="Example Modal"
       >
+        <div className={s.close} onClick={() => setModal(false)}>
+          <AiFillCloseSquare />
+        </div>
         <div className={s.modalImg} style={{ backgroundImage: `url(${img})` }} />
       </Modal>
       {/*<div className={s.modal} style={modal ? { display: 'flex' } : { display: 'none' }}>*/}
