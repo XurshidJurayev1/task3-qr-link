@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import s from './Check.module.css';
 import bg from '../assets/photo_2022-10-03_22-25-48.jpg';
-import { AiOutlineDown } from 'react-icons/ai';
+import img from '../assets/img.png';
+import { AiOutlineDown, AiFillCloseSquare } from 'react-icons/ai';
 
 const Index = () => {
   const [select1, setSelect1] = useState(false);
   const [select2, setSelect2] = useState(false);
+  const [modal, setModal] = useState(false);
 
   return (
     <div className={s.main}>
@@ -125,7 +127,7 @@ const Index = () => {
           <p className={s.tableTitle}>
             Информация о товаре
           </p>
-          <div className={s.tableEl}>
+          <div className={s.tableEl} style={{ borderTop: '0px ! important' }}>
             <p>
               Наименование товара
             </p>
@@ -181,7 +183,8 @@ const Index = () => {
           Покупатель обязан принять Товар от Продавца в порядке и в сроки, предусмотренные настоящим Договором, оплатить
           Товар в порядке и в сроки, предусмотренные настоящим Договором.
         </p>
-        <p className={s.text}>Цена Товара, передаваемого по настоящему Договору, составляет: 297 000 сум.</p>
+        <p className={s.text}>Цена Товара, передаваемого по настоящему Договору, составляет: 297 000 (двести
+          девяносто семь тысяч) сум.</p>
         <p className={s.text}>
           Датой оплаты считается дата передачи Покупателем наличных денежных средств Продавцу либо дата поступления
           денежных средств на счет Продавца.
@@ -193,14 +196,19 @@ const Index = () => {
           Благодарим за покупку!
         </p>
 
-        <a href="#" className={s.certificate}>
+        <p className={s.certificate} onClick={() => setModal(true)}>
           сертификаты
-        </a>
+        </p>
 
-        <div className={s.modal}>
 
+      </div>
+      <div className={s.modal} style={modal ? { display: 'flex' } : { display: 'none' }}>
+        <div className={s.modalContent} onBlur={() => setModal(false)}>
+          <div className={s.close} onClick={() => setModal(false)}>
+            <AiFillCloseSquare />
+          </div>
+          <div className={s.modalImg} style={{ backgroundImage: `url(${img})` }} />
         </div>
-
       </div>
     </div>
   );
