@@ -1,18 +1,74 @@
 import React, { useState } from 'react';
 import s from './Check.module.css';
-import bg from '../assets/photo_2022-10-03_22-25-48.jpg';
+// import bg from '../assets/Logo2.png';
+import bg from '../assets/Euph1.png';
+import { ReactComponent as Logo } from '../assets/Euph1 1.svg';
 import img from '../assets/img.png';
 import { AiOutlineDown, AiFillCloseSquare } from 'react-icons/ai';
 import ModalEl from './Modal';
+import JsPDF from 'jspdf';
+import Modal from 'react-modal';
+import jsPDF from 'jspdf';
+
 
 const Index = () => {
   const [select1, setSelect1] = useState(false);
   const [select2, setSelect2] = useState(false);
   const [modal, setModal] = useState(false);
 
+  const customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+    },
+    overlay: {
+      background: 'rgba(51, 51, 51, 0.58)',
+    },
+  };
+
+  const closeModal = () => {
+    setModal(false);
+  };
+  const downloadBlank = () => {
+    const report = new JsPDF('portrait', 'pt', 'a4');
+    report.addFont(data, 'TEXT', 10, 10);
+    report.save('blank.pdf');
+    // report.html(document.querySelector('#blank')).then(() => {
+    //   report.save('blank.pdf');
+    // });
+  };
+
+  const downloadCertificate = () => {
+    console.log('asdasd');
+    // const report = new JsPDF('portrait', 'pt', 'a4');
+    // report.html(document.querySelector('#certificate')).then(() => {
+    //   report.save('certificate.pdf');
+    // });
+    const doc = new JsPDF('portrait', 'pt', 'a4');  // optional parameters
+    doc.addImage(img, 'JPEG', 10, 10, 1000, 2000);
+    doc.save('certificate.pdf');
+  };
+
+  const data = {
+    Наименованиетовара: 'PowerMan low',
+    Количество: '1',
+    Цена: '297 000',
+    Сумма: '297 000',
+    ИТОГО: 'Двести девяносто семь тысяч сум												297 000',
+
+  };
+
+
   return (
     <div className={s.main}>
-      <div className={s.img} style={{ backgroundImage: `url(${bg})` }} />
+      <div className={s.imgContainer}>
+        {/*<div className={s.img} style={{ backgroundImage: `url(${bg})` }} />*/}
+        <Logo />
+      </div>
       <div className={s.titleDiv}>
         <h3 className={s.title}>Договор купли продажи № 764803 от 17.08.2022
         </h3>
@@ -124,7 +180,7 @@ const Index = () => {
           обязуется принять Товар и уплатить за него цену в размере и в порядке, предусмотренных Договором.
         </p>
 
-        <div className={s.table}>
+        <div id="blank" className={s.table}>
           <p className={s.tableTitle}>
             Информация о товаре
           </p>
@@ -134,7 +190,7 @@ const Index = () => {
             </p>
             <span className={s.border} />
             <p>
-              PowerMan low
+              <span>PowerMan low</span>
             </p>
           </div>
           <div className={s.tableEl}>
@@ -143,7 +199,7 @@ const Index = () => {
             </p>
             <span className={s.border} />
             <p>
-              1
+              <span> 1</span>
             </p>
           </div>
           <div className={s.tableEl}>
@@ -152,7 +208,7 @@ const Index = () => {
             </p>
             <span className={s.border} />
             <p>
-              297 000
+              <span> 297 000</span>
             </p>
           </div>
           <div className={s.tableEl}>
@@ -161,7 +217,16 @@ const Index = () => {
             </p>
             <span className={s.border} />
             <p>
-              297 000
+              <span> 297 000</span>
+            </p>
+          </div>
+          <div className={s.tableEl}>
+            <p>
+              Сумма доставки
+            </p>
+            <span className={s.border} />
+            <p>
+              <span> 50 000</span>
             </p>
           </div>
 
@@ -171,7 +236,7 @@ const Index = () => {
             </p>
             <span className={s.border} />
             <p>
-              297 000
+              <span> 347 000</span>
             </p>
           </div>
 
@@ -202,9 +267,26 @@ const Index = () => {
 
         </p>
 
+        <p className={s.certificate} onClick={downloadBlank}>
+          Скачать договор
+        </p>
+        <p className={s.certificate} onClick={downloadCertificate}>
+          Скачать сертификат
+        </p>
+
 
       </div>
-      <ModalEl modal={modal} setModal={setModal} />
+      <Modal
+        isOpen={modal}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+        <div className={s.close} onClick={() => setModal(false)}>
+          <AiFillCloseSquare />
+        </div>
+        <div className={s.modalImg} style={{ backgroundImage: `url(${img})` }} id="certificate" />
+      </Modal>
     </div>
   );
 };
