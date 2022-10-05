@@ -262,17 +262,16 @@ const Index = () => {
           Благодарим за покупку!
         </p>
 
-        <p className={s.certificate} onClick={() => setModal(true)}>
-          сертификаты
+        <div className={s.divCertificate} >
+          <p className={s.certificate} onClick={() => setModal(true)}>
+            сертификаты
 
-        </p>
+          </p>
 
-        <p className={s.certificate} onClick={downloadBlank}>
-          Скачать договор
-        </p>
-        <p className={s.certificate} onClick={downloadCertificate}>
-          Скачать сертификат
-        </p>
+          <p className={s.certificate} onClick={downloadBlank}>
+            Скачать документов
+          </p>
+        </div>
 
 
       </div>
