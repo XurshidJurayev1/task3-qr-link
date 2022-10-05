@@ -44,13 +44,13 @@ const Index = () => {
 
   const downloadCertificate = () => {
     console.log('asdasd');
-    // const report = new JsPDF('portrait', 'pt', 'a4');
-    // report.html(document.querySelector('#certificate')).then(() => {
-    //   report.save('certificate.pdf');
-    // });
-    const doc = new JsPDF('portrait', 'pt', 'a4');  // optional parameters
-    doc.addImage(img, 'JPEG', 10, 10, 1000, 2000);
-    doc.save('certificate.pdf');
+    const report = new JsPDF('portrait', 'pt', 'a4');
+    report.html(document.querySelector('#certificate')).then(() => {
+      report.save('certificate.pdf');
+    });
+    // const doc = new JsPDF('portrait', 'pt', 'a4');  // optional parameters
+    // doc.addImage(img, 'JPEG', 10, 10, 1000, 2000);
+    // doc.save('certificate.pdf');
   };
 
   const data = {
