@@ -33,6 +33,7 @@ const Index = () => {
 
 
   const func = async () => {
+    console.log('send request');
     await api().post('trade/hs/orderscontract/contract', { order: url }, {
       headers: {
         Authorization: 'Basic ' + btoa(user.Username + ':' + user.Password),
