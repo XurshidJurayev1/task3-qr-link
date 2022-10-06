@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import s from './Check.module.css';
 // import bg from '../assets/Logo2.png';
 import bg from '../assets/Euph1.png';
@@ -9,23 +9,52 @@ import ModalEl from './Modal';
 import JsPDF from 'jspdf';
 import Modal from 'react-modal';
 import jsPDF from 'jspdf';
+import { useLocation } from 'react-router-dom';
+import axios from 'axios';
+import { api } from '../Api/api';
 
 
 const Index = () => {
   const [select1, setSelect1] = useState(false);
   const [select2, setSelect2] = useState(false);
   const [modal, setModal] = useState(false);
+  const { response, setResponse } = useState();
+  const location = useLocation();
+
+  const url = location.pathname.replace('/', '');
+
+  console.log(url);
+
+  console.log(process.env.REACT_APP_URL);
+
+  const user = {
+    Username: 'ContractUser', Password: 'X9knh2W6c9SP2H08',
+  };
+
+  useEffect(() => {
+    if (url.length) {
+      const func = async () => {
+        await api().post('trade/hs/orderscontract/contract', { order: url }, {
+          headers: {
+            Authorization: 'Basic ' + btoa(user.Username + ':' + user.Password),
+          },
+
+        })
+          .then(res => {
+            console.log(res);
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      };
+      func();
+    }
+  }, []);
 
   const customStyles = {
     content: {
-      top: '50%',
-      left: '50%',
-      right: 'auto',
-      bottom: 'auto',
-      marginRight: '-50%',
-      transform: 'translate(-50%, -50%)',
-    },
-    overlay: {
+      top: '50%', left: '50%', right: 'auto', bottom: 'auto', marginRight: '-50%', transform: 'translate(-50%, -50%)',
+    }, overlay: {
       background: 'rgba(51, 51, 51, 0.58)',
     },
   };
@@ -63,8 +92,7 @@ const Index = () => {
   };
 
 
-  return (
-    <div className={s.main}>
+  return (<div className={s.main}>
       <div className={s.imgContainer}>
         {/*<div className={s.img} style={{ backgroundImage: `url(${bg})` }} />*/}
         <Logo />
@@ -262,7 +290,7 @@ const Index = () => {
           Благодарим за покупку!
         </p>
 
-        <div className={s.divCertificate} >
+        <div className={s.divCertificate}>
           <p className={s.certificate} onClick={() => setModal(true)}>
             сертификаты
 
@@ -286,8 +314,7 @@ const Index = () => {
         </div>
         <div className={s.modalImg} style={{ backgroundImage: `url(${img})` }} id="certificate" />
       </Modal>
-    </div>
-  );
+    </div>);
 };
 
 export default Index;
