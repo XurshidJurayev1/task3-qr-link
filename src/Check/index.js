@@ -23,9 +23,6 @@ const Index = () => {
 
   const url = location.pathname.replace('/', '');
 
-  console.log(url);
-
-  console.log(process.env.REACT_APP_URL);
 
   const user = {
     Username: 'ContractUser', Password: 'X9knh2W6c9SP2H08',
