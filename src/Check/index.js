@@ -319,7 +319,7 @@ const Index = (props) => {
           </>
           :
           <>
-            <h1>Loading...</h1>
+            <Loader />
           </>
       }
     </div>
