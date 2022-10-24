@@ -74,9 +74,7 @@ const Index = (props) => {
   };
 
 
-  if (contract.loading) {
-    return Loader;
-  } else return (<div className={s.main}>
+  return (<div className={s.main}>
     <div className={s.imgContainer}>
       {/*<div className={s.img} style={{ backgroundImage: `url(${bg})` }} />*/}
       <Logo />
