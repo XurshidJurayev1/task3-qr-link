@@ -8,7 +8,7 @@ const user = {
 
 
 export const getContract = (url) => async (dispatch) => {
-  const response = await api().post('trade/hs/orderscontract/contract', { order: url }, {
+  const response = await api().post('price/api/', { order: url }, {
     headers: {
       Authorization: 'Basic ' + btoa(user.Username + ':' + user.Password),
     },
@@ -44,14 +44,3 @@ export const getCertificate = (url) => async (dispatch) => {
     type: 'GET_CERTIFICATE', payload: response,
   });
 };
-
-export const getLinkCertificate =(url)=> async (dispatch) => {
-  const response = await axios.post('https://eco.delorean.uz/price/api/', {
-    order: url
-  }).then(res=>{
-    return res.data
-  }).catch(err=>console.log(err))
-  dispatch({
-    type: "GET_LINK", payload:response
-  })
-}

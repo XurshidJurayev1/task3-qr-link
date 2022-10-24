@@ -15,12 +15,4 @@ export const certificate = (state = {}, action) => {
   }
 };
 
-export const getLink = (state={}, action) => {
-  switch (action.type){
-    case "GET_LINK":
-      return action.payload
-    default :
-      return state
-  }
 
-}
