@@ -1,11 +1,11 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
-import { certificate, contract } from './CheckReducer';
+import { certificate, contract, getLink } from './CheckReducer';
 
 
 const rootReducer = combineReducers({
-  contract, certificate,
+  contract, certificate, getLink,
 
 });
 

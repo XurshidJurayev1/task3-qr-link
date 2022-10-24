@@ -1,4 +1,5 @@
 import { api } from '../Api/api';
+import axios from 'axios';
 
 
 const user = {
@@ -43,3 +44,14 @@ export const getCertificate = (url) => async (dispatch) => {
     type: 'GET_CERTIFICATE', payload: response,
   });
 };
+
+export const getLinkCertificate =(url)=> async (dispatch) => {
+  const response = await axios.post('https://eco.delorean.uz/price/api/', {
+    order: url
+  }).then(res=>{
+    return res.data
+  }).catch(err=>console.log(err))
+  dispatch({
+    type: "GET_LINK", payload:response
+  })
+}

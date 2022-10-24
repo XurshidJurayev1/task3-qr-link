@@ -13,7 +13,7 @@ import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { api } from '../Api/api';
 import { connect } from 'react-redux';
-import { getCertificate, getContract } from '../redux/CheckAction';
+import { getCertificate, getContract, getLinkCertificate } from '../redux/CheckAction';
 import Loader from './Loader';
 
 
@@ -24,6 +24,7 @@ const Index = (props) => {
   const location = useLocation();
   const sertificate = props.certificate;
   const contract = props.contract;
+  const link = props.link;
 
 
   const url = location.pathname.replace('/', '');
@@ -34,6 +35,7 @@ const Index = (props) => {
 
       props.getCertificate(url);
       props.getContract(url);
+      props.getLinkCertificate(url);
     }
   }, []);
 
@@ -72,6 +74,8 @@ const Index = (props) => {
     // doc.addImage(img, 'JPEG', 10, 10, 1000, 2000);
     // doc.save('certificate.pdf');
   };
+
+  console.log(props);
 
 
   return (
@@ -294,12 +298,12 @@ const Index = (props) => {
 
                 </p>
 
-                <p className={s.certificate} onClick={downloadBlank}>
-                  Скачать документов
-                </p>
-                {/*<a href={props.certificate} className={s.certificate}>*/}
+                {/*<p className={s.certificate} onClick={downloadBlank}>*/}
                 {/*  Скачать документов*/}
-                {/*</a>*/}
+                {/*</p>*/}
+                <a href={link.linkCertificate} className={s.certificate} target="_blank" rel="noreferrer">
+                  Скачать документов
+                </a>
 
               </div>
 
@@ -332,6 +336,7 @@ const mapStateToProps = (state) => {
   return {
     contract: state.contract,
     certificate: state.certificate,
+    link: state.getLink,
   };
 };
 
@@ -339,4 +344,5 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   getContract,
   getCertificate,
+  getLinkCertificate,
 })(Index);
