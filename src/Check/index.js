@@ -77,246 +77,250 @@ const Index = (props) => {
   return (
     <div className={s.main}>
       {
-        props.contract.data.contract &&
-        <>
-          <div className={s.imgContainer}>
-            {/*<div className={s.img} style={{ backgroundImage: `url(${bg})` }} />*/}
-            <Logo />
-          </div>
-          <div id="content">
-
-
-            <div className={s.titleDiv}>
-              <h3 className={s.title}>Договор купли продажи
-                № {contract.data.contract.number} от {contract.data.contract.date}
-              </h3>
+        props.contract.data.contract ?
+          <>
+            <div className={s.imgContainer}>
+              {/*<div className={s.img} style={{ backgroundImage: `url(${bg})` }} />*/}
+              <Logo />
             </div>
-          </div>
-          <div className={s.container}>
             <div id="content">
-              <div className={s.date}>
-                <p>
-                  г. Ташкент
+
+
+              <div className={s.titleDiv}>
+                <h3 className={s.title}>Договор купли продажи
+                  № {contract.data.contract.number} от {contract.data.contract.date}
+                </h3>
+              </div>
+            </div>
+            <div className={s.container}>
+              <div id="content">
+                <div className={s.date}>
+                  <p>
+                    г. Ташкент
+
+                  </p>
+                  <p>
+                    {contract.data.contract.date}
+
+                  </p>
+                </div>
+
+                <div className={s.select}>
+                  <div className={s.selectHeader} onClick={() => setSelect1(!select1)}>
+                    <div className={s.iconSelect} style={select1 ? { transform: 'rotate(-180deg)' } : null}>
+                      <AiOutlineDown />
+                    </div>
+                    <div className={s.selectTitle}>
+                      <p>
+                        Продавец:
+                      </p>
+                      <p>
+                        <span>{contract.data.contract.salesman_name}</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div className={s.selectContent} style={select1 ? { height: '195px' } : { height: '0px' }}>
+                    <div className={s.selectContentEl}>
+                      <p>
+                        Город:
+                      </p>
+                      <p>
+                        {contract.data.contract.salesman_city}
+                      </p>
+                    </div>
+                    <div className={s.selectContentEl}>
+                      <p>
+                        Адрес:
+                      </p>
+                      <p>
+                        {contract.data.contract.salesman_adress}
+                      </p>
+                    </div>
+                    <div className={s.selectContentEl}>
+                      <p>
+                        ИНН:
+                      </p>
+                      <p>
+                        {contract.data.contract.salesman_inn}
+                      </p>
+                    </div>
+                    <div className={s.selectContentEl}>
+                      <p>
+                        Тел:
+                      </p>
+                      <p>
+                        {contract.data.contract.salesman_telephone}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className={s.select}>
+                  <div className={s.selectHeader} onClick={() => setSelect2(!select2)}>
+                    <div className={s.iconSelect} style={select2 ? { transform: 'rotate(-180deg)' } : null}>
+                      <AiOutlineDown />
+                    </div>
+                    <div className={s.selectTitle}>
+                      <p>
+                        Покупатель:
+                      </p>
+                      <p>
+                        <span>{contract.data.contract.buyer_name}</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div className={s.selectContent} style={select2 ? { height: '150px' } : { height: '0px' }}>
+                    <div className={s.selectContentEl}>
+                      <p>
+                        Город:
+                      </p>
+                      <p>
+                        {contract.data.contract.buyer_city}
+                      </p>
+                    </div>
+                    <div className={s.selectContentEl}>
+                      <p>
+                        Адрес:
+                      </p>
+                      <p>
+                        {contract.data.contract.buyer_adress}
+                      </p>
+                    </div>
+                    <div className={s.selectContentEl}>
+                      <p>
+                        Тел:
+                      </p>
+                      <p>
+                        {contract.data.contract.buyer_telephone}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <p className={s.text}>
+                  Продавец передает в собственность Покупателя товар (наименование, вид, характеристики товара), а
+                  Покупатель
+                  обязуется принять Товар и уплатить за него цену в размере и в порядке, предусмотренных Договором.
+                </p>
+
+                <div id="blank" className={s.table}>
+                  <p className={s.tableTitle}>
+                    Информация о товаре
+                  </p>
+                  <div className={s.tableEl} style={{ borderTop: '0px ! important' }}>
+                    <p>
+                      Наименование товара
+                    </p>
+                    <span className={s.border} />
+                    <p>
+                      <span>{contract.data.contract.product}</span>
+                    </p>
+                  </div>
+                  <div className={s.tableEl}>
+                    <p>
+                      Количество
+                    </p>
+                    <span className={s.border} />
+                    <p>
+                      <span> {contract.data.contract.quantity}</span>
+                    </p>
+                  </div>
+                  <div className={s.tableEl}>
+                    <p>
+                      Цена
+                    </p>
+                    <span className={s.border} />
+                    <p>
+                      <span> {contract.data.contract.price}</span>
+                    </p>
+                  </div>
+                  <div className={s.tableEl}>
+                    <p>
+                      Сумма
+                    </p>
+                    <span className={s.border} />
+                    <p>
+                      <span>{contract.data.contract.sum}</span>
+                    </p>
+                  </div>
+                  <div className={s.tableEl}>
+                    <p>
+                      Сумма доставки
+                    </p>
+                    <span className={s.border} />
+                    <p>
+                      <span> {contract.data.contract.cost_of_delivery}</span>
+                    </p>
+                  </div>
+
+                  <div className={s.tableEl}>
+                    <p>
+                      ИТОГО:
+                    </p>
+                    <span className={s.border} />
+                    <p>
+                      <span> {contract.data.contract.totat_sum}</span>
+                    </p>
+                  </div>
+
+                </div>
+
+                <p className={s.text}>Продавец обязан передать Покупателю Товар надлежащего качества и в надлежащей
+                  упаковке в
+                  порядке и в сроки, предусмотренные настоящим Договором, передать Товар свободным от прав третьих лиц.
+                </p>
+                <p className={s.text}>
+                  Покупатель обязан принять Товар от Продавца в порядке и в сроки, предусмотренные настоящим Договором,
+                  оплатить
+                  Товар в порядке и в сроки, предусмотренные настоящим Договором.
+                </p>
+                <p className={s.text}>Цена Товара, передаваемого по настоящему Договору,
+                  составляет: {contract.data.contract.sum} ({contract.data.contract.total_sum_string}) сум.</p>
+                <p className={s.text}>
+                  Датой оплаты считается дата передачи Покупателем наличных денежных средств Продавцу либо дата
+                  поступления
+                  денежных средств на счет Продавца.
+                </p>
+                <p className={s.text}>
+                  Просим проверить целостность упаковки при получении товара.
+                </p>
+                <p className={s.text}>
+                  Благодарим за покупку!
+                </p>
+              </div>
+              <div className={s.divCertificate}>
+                <p className={s.certificate} onClick={() => setModal(true)}>
+                  сертификаты
 
                 </p>
-                <p>
-                  {contract.data.contract.date}
 
+                <p className={s.certificate} onClick={downloadBlank}>
+                  Скачать документов
                 </p>
-              </div>
-
-              <div className={s.select}>
-                <div className={s.selectHeader} onClick={() => setSelect1(!select1)}>
-                  <div className={s.iconSelect} style={select1 ? { transform: 'rotate(-180deg)' } : null}>
-                    <AiOutlineDown />
-                  </div>
-                  <div className={s.selectTitle}>
-                    <p>
-                      Продавец:
-                    </p>
-                    <p>
-                      <span>{contract.data.contract.salesman_name}</span>
-                    </p>
-                  </div>
-                </div>
-                <div className={s.selectContent} style={select1 ? { height: '195px' } : { height: '0px' }}>
-                  <div className={s.selectContentEl}>
-                    <p>
-                      Город:
-                    </p>
-                    <p>
-                      {contract.data.contract.salesman_city}
-                    </p>
-                  </div>
-                  <div className={s.selectContentEl}>
-                    <p>
-                      Адрес:
-                    </p>
-                    <p>
-                      {contract.data.contract.salesman_adress}
-                    </p>
-                  </div>
-                  <div className={s.selectContentEl}>
-                    <p>
-                      ИНН:
-                    </p>
-                    <p>
-                      {contract.data.contract.salesman_inn}
-                    </p>
-                  </div>
-                  <div className={s.selectContentEl}>
-                    <p>
-                      Тел:
-                    </p>
-                    <p>
-                      {contract.data.contract.salesman_telephone}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className={s.select}>
-                <div className={s.selectHeader} onClick={() => setSelect2(!select2)}>
-                  <div className={s.iconSelect} style={select2 ? { transform: 'rotate(-180deg)' } : null}>
-                    <AiOutlineDown />
-                  </div>
-                  <div className={s.selectTitle}>
-                    <p>
-                      Покупатель:
-                    </p>
-                    <p>
-                      <span>{contract.data.contract.buyer_name}</span>
-                    </p>
-                  </div>
-                </div>
-                <div className={s.selectContent} style={select2 ? { height: '150px' } : { height: '0px' }}>
-                  <div className={s.selectContentEl}>
-                    <p>
-                      Город:
-                    </p>
-                    <p>
-                      {contract.data.contract.buyer_city}
-                    </p>
-                  </div>
-                  <div className={s.selectContentEl}>
-                    <p>
-                      Адрес:
-                    </p>
-                    <p>
-                      {contract.data.contract.buyer_adress}
-                    </p>
-                  </div>
-                  <div className={s.selectContentEl}>
-                    <p>
-                      Тел:
-                    </p>
-                    <p>
-                      {contract.data.contract.buyer_telephone}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <p className={s.text}>
-                Продавец передает в собственность Покупателя товар (наименование, вид, характеристики товара), а
-                Покупатель
-                обязуется принять Товар и уплатить за него цену в размере и в порядке, предусмотренных Договором.
-              </p>
-
-              <div id="blank" className={s.table}>
-                <p className={s.tableTitle}>
-                  Информация о товаре
-                </p>
-                <div className={s.tableEl} style={{ borderTop: '0px ! important' }}>
-                  <p>
-                    Наименование товара
-                  </p>
-                  <span className={s.border} />
-                  <p>
-                    <span>{contract.data.contract.product}</span>
-                  </p>
-                </div>
-                <div className={s.tableEl}>
-                  <p>
-                    Количество
-                  </p>
-                  <span className={s.border} />
-                  <p>
-                    <span> {contract.data.contract.quantity}</span>
-                  </p>
-                </div>
-                <div className={s.tableEl}>
-                  <p>
-                    Цена
-                  </p>
-                  <span className={s.border} />
-                  <p>
-                    <span> {contract.data.contract.price}</span>
-                  </p>
-                </div>
-                <div className={s.tableEl}>
-                  <p>
-                    Сумма
-                  </p>
-                  <span className={s.border} />
-                  <p>
-                    <span>{contract.data.contract.sum}</span>
-                  </p>
-                </div>
-                <div className={s.tableEl}>
-                  <p>
-                    Сумма доставки
-                  </p>
-                  <span className={s.border} />
-                  <p>
-                    <span> {contract.data.contract.cost_of_delivery}</span>
-                  </p>
-                </div>
-
-                <div className={s.tableEl}>
-                  <p>
-                    ИТОГО:
-                  </p>
-                  <span className={s.border} />
-                  <p>
-                    <span> {contract.data.contract.totat_sum}</span>
-                  </p>
-                </div>
+                {/*<a href={props.certificate} className={s.certificate}>*/}
+                {/*  Скачать документов*/}
+                {/*</a>*/}
 
               </div>
 
-              <p className={s.text}>Продавец обязан передать Покупателю Товар надлежащего качества и в надлежащей
-                упаковке в
-                порядке и в сроки, предусмотренные настоящим Договором, передать Товар свободным от прав третьих лиц.
-              </p>
-              <p className={s.text}>
-                Покупатель обязан принять Товар от Продавца в порядке и в сроки, предусмотренные настоящим Договором,
-                оплатить
-                Товар в порядке и в сроки, предусмотренные настоящим Договором.
-              </p>
-              <p className={s.text}>Цена Товара, передаваемого по настоящему Договору,
-                составляет: {contract.data.contract.sum} ({contract.data.contract.total_sum_string}) сум.</p>
-              <p className={s.text}>
-                Датой оплаты считается дата передачи Покупателем наличных денежных средств Продавцу либо дата
-                поступления
-                денежных средств на счет Продавца.
-              </p>
-              <p className={s.text}>
-                Просим проверить целостность упаковки при получении товара.
-              </p>
-              <p className={s.text}>
-                Благодарим за покупку!
-              </p>
-            </div>
-            <div className={s.divCertificate}>
-              <p className={s.certificate} onClick={() => setModal(true)}>
-                сертификаты
-
-              </p>
-
-              <p className={s.certificate} onClick={downloadBlank}>
-                Скачать документов
-              </p>
-              {/*<a href={props.certificate} className={s.certificate}>*/}
-              {/*  Скачать документов*/}
-              {/*</a>*/}
 
             </div>
-
-
-          </div>
-          <Modal
-            isOpen={modal}
-            onRequestClose={closeModal}
-            style={customStyles}
-            contentLabel="Example Modal"
-          >
-            <div className={s.close} onClick={() => setModal(false)}>
-              <AiFillCloseSquare />
-            </div>
-            <div className={s.modalImg} style={{ backgroundImage: `url(${img})` }} id="certificate" />
-          </Modal>
-        </>
+            <Modal
+              isOpen={modal}
+              onRequestClose={closeModal}
+              style={customStyles}
+              contentLabel="Example Modal"
+            >
+              <div className={s.close} onClick={() => setModal(false)}>
+                <AiFillCloseSquare />
+              </div>
+              <div className={s.modalImg} style={{ backgroundImage: `url(${img})` }} id="certificate" />
+            </Modal>
+          </>
+          :
+          <>
+            <h1>Loading...</h1>
+          </>
       }
     </div>
   );
