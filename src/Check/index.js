@@ -303,7 +303,7 @@ const Index = (props) => {
                 {/*</p>*/}
                 <a href={contract.data.linkCertificate} className={s.certificate} target="_blank"
                    rel="noreferrer">
-                  Скачать документов
+                  Скачать документы
                 </a>
 
               </div>
