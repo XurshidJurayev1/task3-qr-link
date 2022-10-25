@@ -173,7 +173,7 @@ const Index = (props) => {
                       </p>
                     </div>
                   </div>
-                  <div className={s.selectContent} style={select2 ? { height: '170px' } : { height: '0px' }}>
+                  <div className={s.selectContent} style={select2 ? { height: '100%' } : { height: '0px' }}>
                     <div className={s.selectContentEl}>
                       <p>
                         Город:
