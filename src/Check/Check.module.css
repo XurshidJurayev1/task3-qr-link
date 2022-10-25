@@ -129,6 +129,7 @@
 
 .selectContentEl p {
     margin: 0;
+    text-align: right;
 }
 
 .text {
