@@ -279,7 +279,7 @@ const Index = (props) => {
                   Товар в порядке и в сроки, предусмотренные настоящим Договором.
                 </p>
                 <p className={s.text}>Цена Товара, передаваемого по настоящему Договору,
-                  составляет: {contract.data.contract.sum} ({contract.data.contract.total_sum_string}) сум.</p>
+                  составляет: {contract.data.contract.total_sum} ({contract.data.contract.total_sum_string}) сум.</p>
                 <p className={s.text}>
                   Датой оплаты считается дата передачи Покупателем наличных денежных средств Продавцу либо дата
                   поступления
