@@ -263,7 +263,7 @@ const Index = (props) => {
                     </p>
                     <span className={s.border} />
                     <p>
-                      <span> {contract.data.contract.totat_sum}</span>
+                      <span> {contract.data.contract.total_sum}</span>
                     </p>
                   </div>
 
