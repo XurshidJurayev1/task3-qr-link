@@ -21,6 +21,8 @@
     align-items: center;
     max-width: 100%;
     height: 400px;
+    /*background: rgb(2,0,36);*/
+    background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(105,105,105,1) 47%, rgba(2,0,36,1) 100%);
 }
 
 .imgContainer svg {
